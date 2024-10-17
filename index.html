@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contabilidade Douglas Ribeiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4d4038;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo {
+            width: 50px;
+            vertical-align: middle;
+        }
+
+        nav {
+            background-color: #d4af37;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .home {
+            background-image: url('financeiro.png'); /* Nova imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .home h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .servicos ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .servicos ul li {
+            margin-bottom: 15px;
+        }
+
+        .servicos ul li a {
+            color: #d4af37;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .servicos ul li a:hover {
+            color: #4d4038;
+        }
+
+        .links-uteis h2 {
+            color: #4d4038;
+            margin-bottom: 20px;
+        }
+
+        .link-item {
+            margin-bottom: 15px;
+        }
+
+        .link-item a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-item a:hover {
+            color: #4d4038;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-content input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #d4af37;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #4d4038;
+        }
+
+        footer {
+            background-color: #4d4038;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .social-media a:hover {
+            color: #4d4038;
+        }
+
+        .whatsapp-button {
+            padding: 10px 20px;
+            background-color: #d4af37;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #4d4038;
+        }
+
+        .fale-conosco-button {
+            padding: 10px 20px;
+            background-color: #d4af37;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .fale-conosco-button:hover {
+            background-color: #4d4038;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logo Contabilidade Douglas Ribeiro" class="logo">
+            <h1>D R Acessoria Contábil</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#links-uteis">Links Úteis</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="home">
+        <h2>Bem-vindo à D R Acessoria Contábil</h2>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h2>Nossos Serviços</h2>
+        <ul>
+            <li><a href="#" onclick="openServiceModal('Consultoria Fiscal e Tributária')">Consultoria Fiscal e Tributária</a></li>
+            <li><a href="#" onclick="openServiceModal('Contabilidade Geral')">Contabilidade Geral</a></li>
+            <li><a href="#" onclick="openServiceModal('Gestão de Folha de Pagamento')">Gestão de Folha de Pagamento</a></li>
+            <li><a href="#" onclick="openServiceModal('Planejamento Tributário')">Planejamento Tributário</a></li>
+        </ul>
+    </section>
+
+    <section id="links-uteis" class="links-uteis">
+        <h2>Links Úteis</h2>
+        <div class="link-item">
+            <strong>Consulta CNPJ:</strong> <a href="https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" target="_blank">Clique aqui</a>
+        </div>
+        <div class="link-item">
+            <strong>Consulta CPF:</strong> <a href="https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/consultapublica.asp" target="_blank">Clique aqui</a>
+        </div>
+        <div class="link-item">
+            <strong>Consulta Inscrição Estadual:</strong> <a href="http://www.sintegra.gov.br/" target="_blank">Clique aqui</a>
+        </div>
+        <div class="link-item">
+            <strong>E-CAC:</strong> <a href="https://cav.receita.fazenda.gov.br/autenticacao/login" target="_blank">Clique aqui</a>
+        </div>
+        <div class="link-item">
+            <strong>Portal MEI:</strong> <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank">Clique aqui</a>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container">
+            <button class="fale-conosco-button" onclick="openModal()">Fale Conosco</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Contabilidade Douglas Ribeiro. Todos os direitos reservados.</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/contabilidade.dr.assessoria?igsh=ZnJ0YzQ3NW5jbnhu" target="_blank">Siga-nos no Instagram</a>
+        </div>
+        <button class="whatsapp-button" onclick="openWhatsAppModal()">Clique aqui para WhatsApp</button>
+    </footer>
+
+    <!-- Modal de Contato -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Fale Conosco</h2>
+            <p>Estamos aqui para ajudar! Por favor, nos diga seu nome:</p>
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <button onclick="enviarMensagem()">Enviar</button>
+            <button onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Modal para serviços -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="service-title"></h2>
+            <p>Por favor, informe seu nome para solicitar o serviço:</p>
+            <input type="text" id="service-nome" placeholder="Seu Nome" required>
+            <button onclick="enviarMensagemServico()">Enviar</button>
+            <button onclick="closeServiceModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Modal para WhatsApp -->
+    <div id="whatsapp-modal" class="modal">
+        <div class="modal-content">
+            <h2>WhatsApp</h2>
+            <p>Por favor, informe seu nome para entrar em contato via WhatsApp:</p>
+            <input type="text" id="whatsapp-nome" placeholder="Seu Nome" required>
+            <button onclick="enviarWhatsApp()">Enviar</button>
+            <button onclick="closeWhatsAppModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function openServiceModal(service) {
+            document.getElementById('service-title').innerText = service;
+            document.getElementById('service-modal').style.display = 'flex';
+        }
+
+        function closeServiceModal() {
+            document.getElementById('service-modal').style.display = 'none';
+        }
+
+        function openWhatsAppModal() {
+            document.getElementById('whatsapp-modal').style.display = 'flex';
+        }
+
+        function closeWhatsAppModal() {
+            document.getElementById('whatsapp-modal').style.display = 'none';
+        }
+
+        function enviarMensagem() {
+            const nome = document.getElementById('nome').value;
+            const mensagem = `Olá, meu nome é ${nome}. Estou interessado em falar com vocês.`;
+            const whatsappNumber = '+5522999845104'; // Número do WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`);
+            closeModal();
+        }
+
+        function enviarMensagemServico() {
+            const nome = document.getElementById('service-nome').value;
+            const serviceTitle = document.getElementById('service-title').innerText;
+            const mensagem = `Olá, meu nome é ${nome}. Estou interessado em saber mais sobre ${serviceTitle}.`;
+            const whatsappNumber = '+5522999845104'; // Número do WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`);
+            closeServiceModal();
+        }
+
+        function enviarWhatsApp() {
+            const nome = document.getElementById('whatsapp-nome').value;
+            const mensagem = `Olá, meu nome é ${nome}. Gostaria de falar com vocês pelo WhatsApp.`;
+            const whatsappNumber = '+5522999845104'; // Número do WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`);
+            closeWhatsAppModal();
+        }
+    </script>
+</body>
+</html>
